@@ -1,5 +1,9 @@
 # 🍷 Gridly - Discover, Collect & Share Visual Inspirations
 
+### 🚀 [Live Production Demo Portal Link (Click Here)](https://Pavan-15102001.github.io/Gridly/)
+
+[![Production Deploy Stream State](https://img.shields.io/badge/Deployment-GitHub_Pages-live?style=for-the-badge&color=58111A&logo=github)](https://YOUR_USERNAME.github.io/Gridly/)
+
 Gridly is a premium, high-fidelity visual discovery and media-sharing single-page application (SPA) heavily inspired by Pinterest. Built with a bespoke **Wine & Blush** minimal aesthetic palette, the platform delivers fluid content exploration, deep asset inspection, dynamic client-side filtering, content uploads, full-text searching, and an immersive integrated messaging inbox experience.
 
 The project is completely self-contained within a high-performance frontend architecture, bypassing complex backend network configurations while retaining advanced relational-like features through a state-synchronized memory matrix.
