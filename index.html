@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridly - Discover, Collect & Share Grids</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- 🧭 Global Top Header Navigation Bar (Icons Middle Alignment Layout - 1000136675.jpg) -->
+    <nav class="global-navbar">
+        <div class="nav-left-brand" id="navBrandHomeClick">
+            <div class="app-logo-badge">G</div>
+            <span class="app-brand-name">Gridly</span>
+        </div>
+        
+        <!-- 🎛️ Navigation Icons completely CENTERED across the top line layout -->
+        <div class="nav-right-menu-dock">
+            <button class="top-nav-item active" id="topHomeBtn" title="Feed Home">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span>Home</span>
+            </button>
+            <button class="top-nav-item" id="topSearchToggleBtn" title="Search Hub">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span>Search</span>
+            </button>
+            <button class="top-nav-item create-action-trigger" id="topCreateBtn" title="Add New Grid">
+                <div class="plus-circle-element-wrapper">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+            </button>
+            <button class="top-nav-item" id="topIndexBtn" title="Inbox Board">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                <span>Inbox</span>
+            </button>
+            <button class="top-nav-item" id="topProfileBtn" title="Profile Environment">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Profile</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 🔍 Dropdown Search Panel -->
+    <div class="dropdown-search-panel" id="dropdownSearchContainer" style="display: none;">
+        <div class="search-input-wrapper">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="globalSearchInput" placeholder="Type keywords to filter grids instantly...">
+        </div>
+    </div>
+
+    <!-- 🏷️ Category Filter Scrollbar Tabs -->
+    <nav class="category-tabs-bar" id="categoryTabs">
+        <a href="#" class="grid-tab active" data-category="all">Explore</a>
+        <a href="#" class="grid-tab" data-category="Architecture">Architecture</a>
+        <a href="#" class="grid-tab" data-category="Cinematography">Cinema</a>
+        <a href="#" class="grid-tab" data-category="Music">Music</a>
+        <a href="#" class="grid-tab" data-category="Art">Minimal Art</a>
+        <a href="#" class="grid-tab" data-category="Photography">Photography</a>
+    </nav>
+
+    <!-- 🏛️ Main Full-Width Pinterest Masonry Dashboard -->
+    <main class="main-dashboard-viewport" id="dashboardView">
+        <div class="masonry-grid-engine" id="pinsGridContainer">
+            <!-- Loaded dynamically via JavaScript -->
+        </div>
+    </main>
+
+    <!-- 🔍 🎴 Dynamic Grid Detail & Recommendation View Panel -->
+    <main class="detail-dashboard-viewport" id="gridDetailView" style="display: none;">
+        <button class="btn-back-to-home" id="backToHomeBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to feed
+        </button>
+
+        <div class="detail-split-card">
+            <div class="detail-media-side" id="detailMediaPane"></div>
+            <div class="detail-info-side">
+                <div class="detail-actions-top">
+                    <button class="btn-icon" id="detailShareBtn">Share</button>
+                    <button class="btn-save" id="detailSaveBtn">Save</button>
+                </div>
+                <h1 class="detail-main-title" id="detailTitleText">Grid Title</h1>
+                <div class="detail-author-profile">
+                    <div class="detail-avatar-small">G</div>
+                    <div>
+                        <h4>Gridly Creative Studio</h4>
+                        <p>Verified Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="recommendations-section">
+            <h3 class="recommendations-heading">More Like This</h3>
+            <div class="masonry-grid-engine" id="recommendationsGridContainer"></div>
+        </section>
+    </main>
+
+    <!-- 🧑‍🎨 Dynamic Profile Page Context Overlay Pane (Screenshot 65 Realized) -->
+    <main class="profile-dashboard-viewport" id="profileView" style="display: none;">
+        <header class="profile-header-actions">
+            <div class="profile-logo-left">Gridly Workspace</div>
+            <div class="auth-trigger-buttons">
+                <button class="btn-profile-login" id="headerLoginBtn">Log in</button>
+                <button class="btn-profile-signup" id="headerSignupBtn">Sign up</button>
+            </div>
+        </header>
+
+        <section class="profile-bio-banner">
+            <div class="profile-avatar-frame">G</div>
+            <h1 class="profile-title">Gridly Official</h1>
+            <p class="profile-username">@gridly_showcase</p>
+            <p class="profile-metrics"><strong>24.8k</strong> monthly views &bull; <strong>1.2k</strong> followers</p>
+            <p class="profile-description">Curating high-end minimalism, noir aesthetics, and architectural grids.</p>
+        </section>
+
+        <div class="profile-mosaic-matrix" id="profileMosaicMatrix"></div>
+    </main>
+
+    <!-- ➕ Create New Grid Popup Modal -->
+    <div class="modal" id="createGridModal">
+        <div class="modal-content-box">
+            <h3>Publish a New Grid</h3>
+            <div class="dropzone-area" id="dropZoneContainer">
+                <div class="dropzone-text-prompt">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                    <p>Drag and drop or <span>click to upload asset</span></p>
+                </div>
+                <input type="file" id="mediaSourceInput" accept="image/*,video/*" style="display: none;">
+                <div id="mediaPlaybackPreview" class="media-playback-preview-container"></div>
+            </div>
+            <input type="text" id="gridTitleInput" placeholder="Add your grid title...">
+            <input type="text" id="gridCategoryInput" placeholder="Category (Architecture, Cinematography, Art, Music, Photography)..." style="margin-top: 8px;">
+            <div class="modal-action-footer">
+                <button class="btn-modal-cancel" id="closeCreateModalBtn">Cancel</button>
+                <button class="btn-modal-submit" id="submitGridBtn">Publish Grid</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔐 Premium Authentication Gateway Overlay Framework (Pristine White Forms) -->
+    <div class="modal" id="authenticationOverlayModal">
+        
+        <!-- SignUp Welcomer state (Screenshot 82 remake) -->
+        <div class="auth-card-frame" id="authSignupStatePane">
+            <button class="auth-dismiss-cross-btn" id="dismissSignupCrossBtn">&times;</button>
+            <div class="auth-brand-monogram">G</div>
+            <h2>Unlimited free access to the world's best ideas</h2>
+            <p class="auth-tagline-sub">Sign up to see more grids</p>
+            
+            <div class="auth-button-stack-layout">
+                <button class="btn-auth-email-trigger" id="signupEmailContinueActionBtn">Continue with email</button>
+                <button class="btn-auth-google-integration">Continue with Google</button>
+            </div>
+            
+            <p class="auth-terms-legal-block">By continuing, you agree to Gridly's <a href="#">Terms of Service</a> and acknowledge our <a href="#">Privacy Policy</a>.</p>
+            <p class="auth-view-toggle-footer-switch">Already a member? <span id="switchToLoginLinkPointer">Log in</span></p>
+            <div class="auth-business-promo-strip">Create a free business account</div>
+        </div>
+
+        <!-- LogIn split panel state (Screenshot 81 remake) -->
+        <div class="auth-card-frame split-panel-layout" id="authLoginStatePane" style="display: none;">
+            <button class="auth-dismiss-cross-btn" id="dismissLoginCrossBtn">&times;</button>
+            
+            <div class="auth-pane-form-side-left">
+                <h2>Welcome to Gridly</h2>
+                <div class="input-form-control"><label>Email</label><input type="email" placeholder="Email address"></div>
+                <div class="input-form-control"><label>Password</label><input type="password" placeholder="Password"></div>
+                <a href="#" class="auth-forgotten-recovery-link">Forgot your password?</a>
+                <button class="btn-auth-submit-execution" id="executeLoginSubmitActionBtn">Log in</button>
+                <button class="btn-auth-google-integration google-secondary-btn-override">Continue with Google</button>
+                <p class="auth-view-toggle-footer-switch standalone-centered-text">Not on Gridly yet? <span id="switchToSignupLinkPointer">Sign up</span></p>
+            </div>
+            
+            <div class="auth-pane-qr-side-right">
+                <div class="qr-code-housing-box">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/>
+                    </svg>
+                </div>
+                <h3>Log in instantly</h3>
+                <p>Scan QR code with your phone camera to confirm authentication.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📥 Dynamic Inbox / Messaging Overlay Panel View Container Elements -->
+    <div id="inboxMessagingModal" class="modal">
+
+        <div class="modal-content-box" style="max-width: 460px; padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--blush-accent); padding-bottom: 14px; margin-bottom: 14px;">
+
+                <h2 style="font-size: 22px; font-weight: 800; color: var(--wine-primary); letter-spacing: -0.4px; display: flex; align-items: center; gap: 8px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: translateY(1px);"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Gridly Inbox
+                </h2>
+                <button id="dismissInboxModalCrossBtn" style="background: none; border: none; font-size: 24px; font-weight: 700; color: var(--text-muted); cursor: pointer; opacity: 0.6; transition: opacity 0.2s;">&times;</button>
+            </div>
+        
+            <!-- Mock Notifications / Direct Messages Stack Frame -->
+            <div style="display: flex; flex-direction: column; gap: 12px; max-height: 300px; overflow-y: auto; padding-right: 4px;">
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--blush-bg); border-radius: 14px; cursor: pointer; transition: transform 0.15s;">
+                    <div style="width: 38px; height: 38px; background: var(--wine-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">NK</div>
+                    <div style="flex: 1;">
+                        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-dark);">Nomi Kumar</h4>
+                        <p style="font-size: 12.5px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Hey bro, loved your Cinematography sketches! 🔥</p>
+                    </div>
+                    <span style="font-size: 11px; color: var(--text-muted); font-weight: 600;">2m ago</span>
+                </div>
+            
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #ffffff; border: 1px solid var(--blush-accent); border-radius: 14px; cursor: pointer;">
+                    <div style="width: 38px; height: 38px; background: var(--wine-light); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">G</div>
+                    <div style="flex: 1;">
+                        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-dark);">Gridly Team</h4>
+                        <p style="font-size: 12.5px; color: var(--text-muted);">Your uploaded Minimal Art asset trending today!</p>
+                    </div>
+                    <span style="font-size: 11px; color: var(--text-muted);">1h ago</span>
+                </div>
+            </div>
+        
+            <div style="margin-top: 8px;">
+                <input type="text" placeholder="Search school friends or artists..." style="width: 100%; padding: 12px 16px; border-radius: 14px; border: 1.5px solid var(--blush-accent); background: var(--blush-bg); font-size: 14px; outline: none;">
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
